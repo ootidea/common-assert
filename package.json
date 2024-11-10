@@ -1,0 +1,31 @@
+{
+  "name": "common-assert",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "CC0-1.0",
+  "author": "ootidea",
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "fix": "run-p \"fix:*\"",
+    "fix:biome": "biome check --write",
+    "fix:package-json": "sort-package-json",
+    "check": "run-p \"check:*\"",
+    "check:type": "tsc --noEmit",
+    "check:biome": "biome check",
+    "check:test": "vitest run --silent=false",
+    "preversion": "pnpm check && pnpm build",
+    "postversion": "npm publish ./ && git push --follow-tags"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@tsconfig/strictest": "^2.0.5",
+    "npm-run-all2": "^7.0.1",
+    "sort-package-json": "^2.10.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}
