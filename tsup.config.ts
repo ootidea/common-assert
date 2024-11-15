@@ -5,5 +5,10 @@ export default defineConfig({
   format: ['esm', 'cjs'],
   dts: true,
   splitting: false,
+  treeshake: true,
   clean: true,
+  define: {
+    // for https://vitest.dev/guide/in-source
+    'import.meta.vitest': 'undefined',
+  },
 })

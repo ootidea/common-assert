@@ -4,10 +4,8 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "verbatimModuleSyntax": false,
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "types": ["vitest/globals", "vitest/importMeta"]
   },
   "include": ["src"]
 }
