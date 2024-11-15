@@ -1,12 +1,13 @@
 import { AssertionError } from './AssertionError'
 import { assertTypeEquality } from './assertTypeEquality'
+import { literalToString } from './literalToString'
 
 export function assert<T, U extends T>(value: T, predicate: (value: T) => value is U): asserts value is U
 export function assert<T>(value: T, predicate: (value: T) => false): never
 export function assert<T>(value: T, predicate: (value: T) => boolean): void
 export function assert<T>(value: T, predicate: (value: T) => boolean) {
   if (!predicate(value)) {
-    const errorMessage = `The value ${value} does not satisfy the predicate ${predicate.name ? predicate.name : predicate}`
+    const errorMessage = `The value ${literalToString(value)} does not satisfy the predicate ${predicate.name ? predicate.name : predicate}`
 
     throw new AssertionError(errorMessage)
   }

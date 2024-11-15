@@ -1,7 +1,8 @@
 import { AssertionError } from './AssertionError'
+import { literalToString } from './literalToString'
 
 export function assertNeverType(mustBeNeverType: never): never {
-  throw new AssertionError(`The value ${mustBeNeverType} is not never type.`)
+  throw new AssertionError(`The value ${literalToString(mustBeNeverType)} is not never type.`)
 }
 
 if (import.meta.vitest) {
